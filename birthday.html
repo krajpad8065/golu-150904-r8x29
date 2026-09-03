@@ -82,6 +82,29 @@ img{
 }
 h1{margin:12px 0;color:#ffd4ea}
 p{line-height:1.8}
+#loveText{
+  letter-spacing:2px;
+}
+
+.blast{
+  animation:blast 8s ease forwards;
+}
+
+@keyframes blast{
+  0%{
+    transform:scale(.8);
+    opacity:0;
+  }
+
+  30%{
+    opacity:1;
+  }
+
+  100%{
+    transform:scale(1.08);
+    opacity:1;
+  }
+}
 </style>
 </head>
 
@@ -174,7 +197,18 @@ Fir bhi ye chahta hu tujhe batana...<br><br>
 
 <h2 style="color:#ffd700">HAPPY BIRTHDAY GOLU! ❤️😘</h2>
 
-<p>Forever yours… ✨</p>
+<p>Forever yours… ✨</p> 
+<div id="finalLove" style="display:none;margin-top:35px;">
+    <h1 id="loveText"
+        style="color:#FFD700;
+               font-size:38px;
+               text-shadow:0 0 20px #FFD700;">
+    </h1>
+
+    <p style="margin-top:12px;">
+        Forever & Always ✨
+    </p>
+</div>
 </div>
 </div>
 
@@ -201,8 +235,21 @@ for(let i=0;i<45;i++){
 }
 
 function show(id){
- document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
- document.getElementById(id).classList.add("active");
+
+  document.querySelectorAll(".page").forEach(
+    p=>p.classList.remove("active")
+  );
+
+  document.getElementById(id).classList.add("active");
+
+  if(id==="p5"){
+
+    setTimeout(()=>{
+      endingAnimation();
+    },2000);
+
+  }
+
 }
 
 const stage = localStorage.getItem("stage") || "start";
@@ -300,6 +347,31 @@ window.addEventListener("message",(e)=>{
    show("p5");
  }
 });
+ function endingAnimation(){
+
+  finalLove.style.display="block";
+
+  const msg="I LOVE YOU GOLU ❤️";
+
+  let i=0;
+
+  const typing=setInterval(()=>{
+
+    loveText.innerHTML=msg.substring(0,i);
+
+    i++;
+
+    if(i>msg.length){
+
+      clearInterval(typing);
+
+      finalLove.classList.add("blast");
+
+    }
+
+  },180);
+
+ }
 </script>
 
 </body>
