@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Happy Birthday Golu ❤️</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+ font-family:Georgia,serif;
+ overflow:hidden;
+ background:#000;
+ color:#fff;
+}
+.page{
+ position:fixed;
+ inset:0;
+ display:none;
+ justify-content:center;
+ align-items:center;
+ flex-direction:column;
+ padding:24px;
+ text-align:center;
+ animation:fade 1.2s ease;
+}
+.active{display:flex}
+@keyframes fade{
+ from{opacity:0;transform:scale(.98)}
+ to{opacity:1;transform:scale(1)}
+}
+.card{
+ background:rgba(255,255,255,.10);
+ backdrop-filter:blur(10px);
+ border-radius:24px;
+ padding:22px;
+ width:100%;
+ max-width:360px;
+}
+input,button{
+ width:100%;
+ padding:12px;
+ margin-top:12px;
+ border-radius:12px;
+ border:none;
+}
+button{
+ background:#e75480;
+ color:#fff;
+ font-size:16px;
+}
+img{
+ width:180px;
+ height:180px;
+ object-fit:cover;
+ border-radius:18px;
+}
+#slide{
+ width:100%;
+ max-width:320px;
+ height:420px;
+ object-fit:cover;
+ border-radius:20px;
+ animation:zoom 2.8s ease;
+}
+@keyframes zoom{
+ from{transform:scale(1)}
+ to{transform:scale(1.08)}
+}
+.hearts{
+ position:fixed;
+ inset:0;
+ pointer-events:none;
+}
+.h{
+ position:absolute;
+ animation:float 7s linear infinite;
+}
+@keyframes float{
+ from{transform:translateY(100vh)}
+ to{transform:translateY(-20vh)}
+}
+h1{margin:12px 0;color:#ffd4ea}
+p{line-height:1.8}
+</style>
+</head>
+
+<body>
+
+<div class="hearts" id="hearts"></div>
+
+<!-- PAGE 1 -->
+ 
+<div id="p1" class="page active" style="background:linear-gradient(#fde7ef,#f8ecd9);color:#333">
+  <div class="card">
+    <h1>🔒 A Little Secret</h1>
+
+    <p style="margin:12px 0;">
+      Before our story begins…
+    </p>
+
+    <h3 style="margin:18px 0;">
+      What's the special date? ❤️
+    </h3>
+
+    <input id="pin" type="password" placeholder="DDMMYY">
+
+    <button onclick="checkPin()">Continue ✨</button>
+
+    <p id="pinErr" style="color:#c2185b;margin-top:10px;"></p>
+  </div>
+</div>
+
+<!-- PAGE 2 -->
+<div id="p2" class="page">
+<img id="slide" src="photos/photo1.png">
+</div>
+
+<!-- PAGE 3 -->
+<div id="p3" class="page" style="background:linear-gradient(#18051f,#2d0d3d)">
+<div class="card">
+<h1>❤️ One Last Riddle ❤️</h1>
+<p>
+Masumiyat pe teri me dil vaar gaya...<br><br>
+Teri inni soni muskan pe haar gaya...<br><br>
+Tere jesa sona na dekhiya koi...<br><br>
+Fir bhi ye chahta hu tujhe batana...<br><br>
+<b>ESI koi chiz paas to lana ✨</b>
+</p>
+</div>
+</div>
+
+<!-- PAGE 4 -->
+<div id="p4" class="page" style="background:linear-gradient(#1a0328,#4b1248,#120018)">
+<div class="card">
+<h1>Happy Birthday, Cutu! ❤️</h1>
+
+<p>I wish you the bestest birthday ever! ☺️</p>
+
+<p>Honestly, you've been aging like a fine wine. 🤭</p>
+
+<p>I hope you get everything in life that your heart truly desires.</p>
+
+<p>I absolutely love your squeaky laughter. 😅🤣</p>
+
+<p>Never stop laughing and always stay this happy, my cutie pie. 😍</p>
+
+<h2 style="margin:18px 0">I really, really love you, Golu. ❤️</h2>
+
+<hr style="margin:18px 0">
+
+<h2>🌙 Final Riddle</h2>
+
+<p>Tarif kru kya teri, tu khvab si h...</p>
+<p>Tu meri zindagi k liye sabab si h...</p>
+<h3>Par mere liye tu fir bhi _____ si h</h3>
+</div>
+</div>
+
+<!-- PAGE 5 -->
+<div id="p5" class="page" style="background:linear-gradient(#07102b,#5b2c6f)">
+<div style="font-size:70px">🌕</div>
+
+<h1>Golu… ❤️</h1>
+
+<div class="card">
+<p>You've become my mind's resting place. Your smile has become the therapy for all my overthinking. 🙃</p>
+
+<p>No matter how tense or stressed I am, you somehow make everything feel calm and easy. ❤️</p>
+
+<p>You're truly, truly a gem of a person. It takes a real johri 😏 to recognize the value of a gem. 🙃😘</p>
+
+<p>Many happy returns of the day! I wish your year is filled with hard work, dedication, laughter, endless happiness and prosperity. 🤗</p>
+
+<h2 style="color:#ffd700">HAPPY BIRTHDAY GOLU! ❤️😘</h2>
+
+<p>Forever yours… ✨</p>
+</div>
+</div>
+
+<audio id="bgm" loop preload="auto">
+  <source src="happy_birthday_piano.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const music = document.getElementById("bgm");
+music.volume = 0.35;
+
+function startMusic(){
+    music.play().catch(()=>{});
+}
+
+for(let i=0;i<45;i++){
+ let d=document.createElement("div");
+ d.className="h";
+ d.innerHTML=Math.random()>.5?"💖":"✨";
+ d.style.left=Math.random()*100+"vw";
+ d.style.animationDuration=(5+Math.random()*5)+"s";
+ d.style.animationDelay=Math.random()*5+"s";
+ hearts.appendChild(d);
+}
+
+function show(id){
+ document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+ document.getElementById(id).classList.add("active");
+}
+
+const stage = localStorage.getItem("stage") || "start";
+const hash = location.hash;
+
+if(hash === "#bunny"){
+  if(stage === "riddle1"){
+    localStorage.setItem("stage","bunny");
+    show("p4");
+  }else{
+    show("p3");
+  }
+}
+else if(hash === "#moon"){
+  if(stage === "bunny"){
+    localStorage.setItem("stage","moon");
+    show("p5");
+  }else{
+    show("p4");
+  }
+}
+else{
+  if(stage === "bunny") show("p4");
+  else if(stage === "moon") show("p5");
+  else show("p1");
+}
+
+function checkPin(){
+
+  if(pin.value !== "150904"){
+    pinErr.innerHTML = "Hmm… that's not our date ❤️";
+    return;
+  }
+
+  document.getElementById("p1").innerHTML = `
+    <div class="card">
+      <img src="childhood.jpg" style="width:180px;height:180px;border-radius:18px;object-fit:cover;">
+      <h1>Happy Birthday Golu ❤️</h1>
+
+      <p>Every beautiful story begins with one name...</p>
+
+      <h3 style="margin:16px 0;">WHO'S BIRTHDAY IT IS? 😁</h3>
+
+      <input id="ans" placeholder="Type her name">
+
+      <button onclick="unlock1()">Unlock My Heart ✨</button>
+
+      <p id="err"></p>
+    </div>
+  `;
+}
+
+function unlock1(){
+
+  if(ans.value.trim().toLowerCase() !== "golu"){
+    err.innerHTML = "Only one special girl knows ❤️";
+    return;
+  }
+
+  startMusic();
+  show("p2");
+  slideshow();
+}
+
+const photos=[
+"photos/photo1.png","photos/photo2.png","photos/photo3.png",
+"photos/photo4.png","photos/photo5.png","photos/photo6.png",
+"photos/photo7.png","photos/photo8.png","photos/photo9.png",
+"photos/photo10.png","photos/photo11.png","photos/photo12.png"
+];
+
+function slideshow(){
+ let i=0;
+ const img=document.getElementById("slide");
+
+ const t=setInterval(()=>{
+   i++;
+   if(i>=photos.length){
+     clearInterval(t);
+     localStorage.setItem("stage","riddle1");
+     setTimeout(()=>show("p3"),1000);
+     return;
+   }
+   img.src=photos[i];
+ },2800);
+}
+
+window.addEventListener("message",(e)=>{
+ if(e.data==="BUNNY" && localStorage.getItem("stage")==="riddle1"){
+   localStorage.setItem("stage","bunny");
+   show("p4");
+ }
+ if(e.data==="MOON" && localStorage.getItem("stage")==="bunny"){
+   localStorage.setItem("stage","moon");
+   show("p5");
+ }
+});
+</script>
+
+</body>
+</html>
